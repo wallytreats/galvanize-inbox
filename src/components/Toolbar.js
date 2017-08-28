@@ -2,6 +2,26 @@ import React from 'react'
 
 class Toolbar extends React.Component {
 
+  constructor(props){
+    super(props)
+    this.state = {
+      activeCheckAll: false,
+  };
+}
+
+  toggleCheckAll = (event) => {
+    let currentState = this.state.activeCheckAll;
+
+    let newState = !this.state.activeCheckAll;
+
+    if(this.state.activeCheckAll === currentState){
+      currentState = newState;
+    }else {
+      currentState = currentState;
+    }
+    console.log("the current state: ", currentState);
+    // this.props.checkAll(newState)
+  };
 
   render (){
 
@@ -14,7 +34,7 @@ class Toolbar extends React.Component {
           </p>
 
           <button className="btn btn-default">
-            <i className="fa fa-square-o"></i>
+            <input type="checkbox" className="btn btn-default" onClick={this.toggleCheckAll} />
           </button>
 
           <button className="btn btn-default" disabled="disabled">
